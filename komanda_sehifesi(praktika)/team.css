@@ -1,0 +1,786 @@
+/* ==========================================================================
+   PROBIZ LEGAL HUB — TEAM PAGE STYLESHEET
+   Design System: Inherits from ../css/style.css
+   Theme: Anti-Gravity / Cosmic / Futuristic Levitation
+   Grid System: 8px / 4px spacing scale
+   ========================================================================== */
+
+/* --- 1. VARIABLES (Extend existing palette) --- */
+:root {
+    /* Inherited from main style.css */
+    --plh-base: #092c3a;
+    --plh-cyan: #29a9bd;
+    --plh-cyan-glow: rgba(41, 169, 189, 0.25);
+    --plh-white: #ffffff;
+    --plh-light-bg: #f4f6f7;
+    --plh-text-dark: #121e24;
+    --plh-text-muted: #5e6d75;
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-brand: 'Cinzel', serif;
+
+    /* Borders */
+    --plh-radius-sm: 4px;
+    --plh-radius-lg: 12px;
+
+    /* Team Page Extensions */
+    --card-radius: 20px;
+    --card-blur: 20px;
+    --card-bg: rgba(255, 255, 255, 0.06);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-glow: 0 0 40px rgba(41, 169, 189, 0.3), 0 0 80px rgba(41, 169, 189, 0.1);
+    --levitate-distance: -12px;
+    --transition-smooth: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- 2. BASE RESET --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+body {
+    background-color: var(--plh-base);
+    color: var(--plh-white);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* --- 3. UTILITY CLASSES --- */
+.text-accent {
+    color: var(--plh-cyan) !important;
+}
+
+.text-white {
+    color: var(--plh-white) !important;
+}
+
+.letter-spacing-2 {
+    letter-spacing: 2px;
+}
+
+.letter-spacing-3 {
+    letter-spacing: 3px;
+}
+
+.section-padding {
+    padding: 96px 0;
+}
+
+/* 12 * 8px */
+
+/* --- 4. SCROLL PROGRESS BAR --- */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--plh-cyan);
+    z-index: 10000;
+    transition: width 0.1s ease-out;
+}
+
+/* --- 5. NAVBAR (Reused from Homepage) --- */
+.plh-nav {
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+    padding: 20px 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.plh-nav.nav-scrolled {
+    background-color: rgba(9, 44, 58, 0.98) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.nav-logo {
+    height: 65px !important;
+    width: auto;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.brand-divider {
+    height: 40px;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.brand-text .brand-title {
+    font-family: var(--font-brand);
+    font-weight: 500;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    line-height: 1;
+    color: var(--plh-white);
+    text-transform: uppercase;
+}
+
+.brand-text .brand-subtitle {
+    font-family: var(--font-brand);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--plh-cyan);
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    padding: 10px 15px !important;
+    font-size: 0.95rem;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--plh-cyan) !important;
+}
+
+.phone-cta {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: var(--plh-cyan);
+    text-decoration: none;
+    letter-spacing: -1px;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.phone-cta:hover {
+    color: var(--plh-white) !important;
+    text-shadow: 0 0 20px var(--plh-cyan-glow);
+    transform: translateY(-3px);
+}
+
+.navbar-collapse.show {
+    background-color: rgba(13, 59, 76, 0.98);
+    backdrop-filter: blur(15px);
+    margin: 0 -1rem;
+    padding: 1rem;
+    border-bottom: 2px solid var(--plh-cyan);
+}
+
+/* --- 6. TEAM HERO SECTION --- */
+.team-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 160px 0 96px;
+    background: linear-gradient(160deg,
+            rgba(6, 30, 40, 0.99) 0%,
+            rgba(9, 44, 58, 0.95) 40%,
+            rgba(15, 60, 78, 0.9) 100%);
+    overflow: hidden;
+}
+
+/* Particle Canvas — sits behind all content */
+.team-hero #particles-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Radial glow behind title */
+.team-hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(41, 169, 189, 0.12) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.team-hero .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-label {
+    display: inline-block;
+    padding: 8px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 32px;
+}
+
+.hero-label i {
+    color: var(--plh-cyan);
+}
+
+.team-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    color: var(--plh-white);
+    margin-bottom: 24px;
+}
+
+.team-hero h1 .accent-italic {
+    color: var(--plh-cyan);
+    font-style: italic;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+}
+
+/* Animated scroll indicator */
+.scroll-indicator {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: float-gentle 3s ease-in-out infinite;
+}
+
+.scroll-indicator i {
+    font-size: 1.2rem;
+    color: var(--plh-cyan);
+}
+
+@keyframes float-gentle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+/* --- 7. TEAM GRID SECTION --- */
+.team-section {
+    padding: 96px 0;
+    background: linear-gradient(180deg, var(--plh-base) 0%, #061e26 100%);
+    position: relative;
+}
+
+.team-section-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.team-section-header h6 {
+    color: var(--plh-cyan);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+}
+
+.team-section-header h2 {
+    color: var(--plh-white);
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+/* --- 7.1 MEMBER CARD (Glassmorphism) --- */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    /* 4 * 8px */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.team-member-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--card-blur));
+    -webkit-backdrop-filter: blur(var(--card-blur));
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 40px 32px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+        transform 0.5s var(--transition-smooth),
+        box-shadow 0.5s ease,
+        border-color 0.4s ease;
+}
+
+/* Subtle top-accent line */
+.team-member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--plh-cyan), transparent);
+    transition: width 0.5s ease;
+}
+
+/* Hover: AntiGravity Levitation + Glow */
+.team-member-card:hover {
+    transform: translateY(var(--levitate-distance));
+    box-shadow: var(--card-glow);
+    border-color: rgba(41, 169, 189, 0.3);
+}
+
+.team-member-card:hover::before {
+    width: 80%;
+}
+
+/* --- 7.2 MEMBER PHOTO --- */
+.member-photo-wrapper {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 24px;
+    position: relative;
+}
+
+
+.member-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: grayscale(60%) brightness(0.9);
+    transition: all 0.5s ease;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-member-card:hover .member-photo {
+    filter: grayscale(0%) brightness(1);
+    border-color: var(--plh-cyan);
+    box-shadow: 0 0 30px rgba(41, 169, 189, 0.25);
+}
+
+/* --- 7.3 MEMBER INFO --- */
+.member-name {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--plh-white);
+    margin-bottom: 4px;
+}
+
+.member-role {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--plh-cyan);
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.member-bio {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 24px;
+    min-height: 60px;
+}
+
+/* --- 7.4 SOCIAL LINKS --- */
+.member-socials {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.social-link:hover {
+    background: var(--plh-cyan);
+    color: var(--plh-white);
+    border-color: var(--plh-cyan);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(41, 169, 189, 0.3);
+}
+
+/* --- 7.5 MODAL SYTLING --- */
+.glass-modal {
+    background: rgba(9, 44, 58, 0.85);
+    /* Darker blue with high opacity for readability */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--card-radius);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(41, 169, 189, 0.15);
+}
+
+.glass-modal .btn-close {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    padding: 12px;
+    margin: 16px 16px 0 auto;
+    transition: all 0.3s ease;
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.glass-modal .btn-close:hover {
+    background-color: var(--plh-cyan);
+    transform: rotate(90deg);
+}
+
+.modal-photo-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 6px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-photo {
+    border-radius: 16px !important;
+    border: 2px solid rgba(41, 169, 189, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+    max-height: 400px;
+}
+
+.modal-detailed-text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* --- 8. CTA SECTION (Bizə Qoşul) --- */
+.team-cta {
+    padding: 96px 0;
+    background: linear-gradient(180deg, #061e26 0%, var(--plh-base) 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Large watermark */
+.team-cta::before {
+    content: 'PLH';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20rem;
+    font-weight: 900;
+    color: rgba(41, 169, 189, 0.04);
+    font-family: var(--font-brand);
+    pointer-events: none;
+    letter-spacing: -10px;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.team-cta h2 {
+    color: var(--plh-white);
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 16px;
+}
+
+.team-cta p {
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.btn-accent {
+    background-color: var(--plh-cyan);
+    color: white;
+    font-weight: 700;
+    padding: 16px 48px;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border: none;
+    transition: all 0.4s ease;
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+.btn-accent:hover {
+    background-color: var(--plh-white);
+    color: var(--plh-base);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(41, 169, 189, 0.3);
+}
+
+.btn-outline-white {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    padding: 16px 48px;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+.btn-outline-white:hover {
+    background-color: white;
+    color: var(--plh-base);
+}
+
+/* --- 9. FOOTER (Reused) --- */
+.plh-footer {
+    background-color: #061e26;
+    padding: 80px 0 30px 0;
+    margin-top: auto;
+    border-top: 4px solid var(--plh-cyan);
+    color: #dcecf0;
+}
+
+.plh-footer h3,
+.plh-footer h6 {
+    color: white;
+}
+
+.brand-footer-text {
+    font-family: var(--font-brand);
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: var(--plh-white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    display: inline-block;
+    line-height: 1.2;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--plh-white);
+    margin-bottom: 5px;
+}
+
+.footer-link-anim {
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.footer-link-anim:hover {
+    color: var(--plh-cyan) !important;
+    transform: translateX(8px);
+}
+
+.social-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: 50%;
+    color: var(--plh-cyan);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.social-icon-btn:hover {
+    background: rgba(41, 169, 189, 0.1);
+    color: var(--plh-white);
+    transform: translateY(-3px);
+    text-shadow: 0 0 15px var(--plh-cyan-glow);
+}
+
+.map-container {
+    border-radius: var(--plh-radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
+
+.map-container:hover {
+    filter: grayscale(0%);
+    border-color: var(--plh-cyan);
+}
+
+/* --- 10. RESPONSIVE (Mobile-First Overrides) --- */
+
+/* Tablet: 2 columns */
+@media (max-width: 991px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .team-hero {
+        min-height: 60vh;
+        padding: 140px 0 80px;
+    }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 575px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 0 16px;
+    }
+
+    .team-hero {
+        min-height: 55vh;
+        padding: 130px 0 64px;
+    }
+
+    .team-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .team-member-card {
+        padding: 32px 24px 28px;
+    }
+
+    .section-padding {
+        padding: 64px 0;
+    }
+
+    .brand-text .brand-title {
+        font-size: 1.2rem !important;
+    }
+
+    .brand-text .brand-subtitle {
+        font-size: 0.6rem !important;
+        letter-spacing: 2px !important;
+    }
+
+    .brand-divider {
+        height: 30px !important;
+    }
+
+    .phone-cta {
+        font-size: 1.4rem;
+    }
+
+    .team-cta::before {
+        font-size: 8rem;
+    }
+}
+
+/* Mobile: fixed bottom CTA */
+.mobile-sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    z-index: 9999;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.15);
+    animation: slideUp 0.8s var(--transition-smooth) forwards;
+    transform: translateY(100%);
+}
+
+.mobile-cta-btn {
+    flex: 1;
+    padding: 16px;
+    text-align: center;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* --- 11. SMOOTH FADE-IN ANIMATION --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.row .container {
+    margin-right: -0.75rem !important;
+    margin-left: -0.75rem !important;
+}

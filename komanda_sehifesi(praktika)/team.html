@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="PROBIZ LEGAL HUB — Bizim Komandamız. Hüquqi sahədə fərq yaradan mütəxəssislərimizlə tanış olun." />
+
+    <title>PROBIZ LEGAL HUB | Bizim Komandamız</title>
+
+    <!-- External Dependencies -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Page Stylesheet -->
+    <link rel="stylesheet" href="team.css" />
+</head>
+
+<body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <!-- =====================================================================
+         NAVIGATION — Reused from Homepage
+         ===================================================================== -->
+    <nav class="navbar navbar-expand-xl fixed-top plh-nav" aria-label="Main navigation">
+        <div class="container-fluid px-lg-5">
+            <a class="navbar-brand d-flex align-items-center" href="../az/index.html"
+                aria-label="PROBIZ Legal Hub Home">
+                <img src="../PLHLogo.png" alt="PROBIZ Legal Hub Logo" class="nav-logo" />
+                <div class="brand-divider mx-3"></div>
+                <div class="brand-text">
+                    <span class="d-block brand-title">PROBIZ</span>
+                    <span class="d-block brand-subtitle">LEGAL HUB</span>
+                </div>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#plhNavbar"
+                aria-controls="plhNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list text-accent fs-1"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="plhNavbar">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../az/index.html">Ana Səhifə</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../az/index.html#about">Haqqımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Komandamız</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../az/index.html#results">Nəticələrimiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../az/index.html#global-footer">Ofislərimiz</a>
+                    </li>
+                </ul>
+
+                <div class="nav-utilities d-flex align-items-center ms-xl-4 gap-3 mt-3 mt-xl-0">
+                    <!-- Language Switcher -->
+                    <div class="dropdown">
+                        <a href="#" class="text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-label="Change Language">
+                            <i class="bi bi-globe2 small"></i> AZ
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="../en/index.html">English</a></li>
+                            <li><a class="dropdown-item active" href="#">Azerbaijani</a></li>
+                            <li><a class="dropdown-item" href="../ru/index.html">Russian</a></li>
+                        </ul>
+                    </div>
+                    <a href="tel:8776674265" class="phone-cta">(877) 667-4265</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- =====================================================================
+           HERO SECTION — "Bizim Arxamızdakı Güc"
+           ===================================================================== -->
+        <header class="team-hero">
+            <canvas id="particles-canvas" aria-hidden="true"></canvas>
+            <div class="hero-content">
+                <span class="hero-label" data-aos="fade-down" data-aos-duration="600">
+                    <i class="bi bi-people-fill me-2"></i> PROBIZ Legal Hub Komandası
+                </span>
+                <h1 data-aos="fade-up" data-aos-duration="800">
+                    Bizim Arxamızdakı<br />
+                    <span class="accent-italic">Güc.</span>
+                </h1>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    Hər bir qələbənin arxasında strateji düşüncə, amansız hazırlıq və müstəsna istedadlardan ibarət
+                    komanda dayanır. Tanış olun.
+                </p>
+                <a href="#team-grid" class="scroll-indicator" data-aos="fade-up" data-aos-delay="400">
+                    <span>Kəşf Et</span>
+                    <i class="bi bi-chevron-double-down"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- =====================================================================
+           TEAM GRID — Member Cards with Glassmorphism
+           ===================================================================== -->
+        <section class="team-section" id="team-grid">
+            <div class="container">
+                <div class="team-section-header" data-aos="fade-up">
+                    <h6>Elit Müşavirlər</h6>
+                    <h2>Tayı-bərabəri Olmayan<br />Hüquqi Zəka</h2>
+                </div>
+
+                <div class="team-grid">
+
+                    <!-- Member 1: Julian Thorne -->
+                    <div class="team-member-card" data-bs-toggle="modal" data-bs-target="#teamModal"
+                        data-member-id="julian">
+                        <div class="member-photo-wrapper">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400"
+                                alt="Julian Thorne" class="member-photo" />
+                        </div>
+                        <h3 class="member-name">Julian Thorne, Esq.</h3>
+                        <span class="member-role">Təsisçi Tərəfdaş</span>
+                        <p class="member-bio">20 ildən artıq transsərhəd satınalmalar və yüksək riskli korporativ
+                            müdafiə üzrə ixtisaslaşmışdır.</p>
+                        <div class="member-socials">
+                            <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="social-link" aria-label="Email"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Member 2: Elena Vance -->
+                    <div class="team-member-card" data-bs-toggle="modal" data-bs-target="#teamModal"
+                        data-member-id="elena">
+                        <div class="member-photo-wrapper">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
+                                alt="Elena Vance" class="member-photo" />
+                        </div>
+                        <h3 class="member-name">Elena Vance, Esq.</h3>
+                        <span class="member-role">Baş Tərəfdaş | ƏM</span>
+                        <p class="member-bio">Silikon Vadisi texnologiya firmaları və əqli mülkiyyət müdafiə
+                            strategiyaları üzrə milli səviyyədə tanınmış məsləhətçi.</p>
+                        <div class="member-socials">
+                            <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="social-link" aria-label="Email"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Member 3: Marcus Sterling -->
+                    <div class="team-member-card" data-bs-toggle="modal" data-bs-target="#teamModal"
+                        data-member-id="marcus">
+                        <div class="member-photo-wrapper">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
+                                alt="Marcus Sterling" class="member-photo" />
+                        </div>
+                        <h3 class="member-name">Marcus Sterling</h3>
+                        <span class="member-role">Aparıcı Vəkil</span>
+                        <p class="member-bio">Federal məhkəmə mübahisələrində 95% uğur dərəcəsi ilə amansız bir
+                            müdafiəçi. Kommersiya çəkişmələri üzrə ekspert.</p>
+                        <div class="member-socials">
+                            <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="social-link" aria-label="Email"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Member 4: Sophia Kessler -->
+                    <div class="team-member-card" data-bs-toggle="modal" data-bs-target="#teamModal"
+                        data-member-id="sophia">
+                        <div class="member-photo-wrapper">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400"
+                                alt="Sophia Kessler" class="member-photo" />
+                        </div>
+                        <h3 class="member-name">Sophia Kessler</h3>
+                        <span class="member-role">Tənzimləmə Hüququ</span>
+                        <p class="member-bio">Beynəlxalq tənzimləmə uyğunluğu və dövlət müqavilələri sahəsində 15 illik
+                            təcrübə. Bakı və Vyana ofislərinin rəhbəri.</p>
+                        <div class="member-socials">
+                            <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="social-link" aria-label="Email"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Member 5: Rashad Mahmudov -->
+                    <div class="team-member-card" data-bs-toggle="modal" data-bs-target="#teamModal"
+                        data-member-id="rashad">
+                        <div class="member-photo-wrapper">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400"
+                                alt="Rashad Mahmudov" class="member-photo" />
+                        </div>
+                        <h3 class="member-name">Rəşad Mahmudov</h3>
+                        <span class="member-role">Böhran İdarəçiliyi</span>
+                        <p class="member-bio">Korporativ böhran və reputasiya idarəçiliyi üzrə strateq. Fortune 500
+                            şirkətləri ilə iş təcrübəsi.</p>
+                        <div class="member-socials">
+                            <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="social-link" aria-label="Email"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Member 6: Leyla Hasanova -->
+                    <div class="team-member-card" data-bs-toggle="modal" data-bs-target="#teamModal"
+                        data-member-id="leyla">
+                        <div class="member-photo-wrapper">
+                            <img src="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&q=80&w=400"
+                                alt="Leyla Hasanova" class="member-photo" />
+                        </div>
+                        <h3 class="member-name">Leyla Həsənova</h3>
+                        <span class="member-role">Daşınmaz Əmlak</span>
+                        <p class="member-bio">Kommersiya daşınmaz əmlakı və tikinti mübahisələri üzrə lider. Bakının ən
+                            nüfuzlu sövdələşmələrini idarə edib.</p>
+                        <div class="member-socials">
+                            <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="social-link" aria-label="Email"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+
+                </div><!-- /.team-grid -->
+            </div>
+        </section>
+
+        <!-- =====================================================================
+           CTA SECTION — "Bizə Qoşul"
+           ===================================================================== -->
+        <section class="team-cta" id="join">
+            <div class="cta-content" data-aos="fade-up">
+                <h6 class="text-accent text-uppercase letter-spacing-3 mb-3"
+                    style="font-size: 0.8rem; font-family: var(--font-body); font-weight: 600;">Karyera İmkanları</h6>
+                <h2>Gələcəyi Birlikdə<br /><span class="text-accent" style="font-style: italic;">Quraq.</span></h2>
+                <p>
+                    Biz həmişə müstəsna istedadlar axtarırıq. Əgər siz hüquq sahəsində fərq yaratmaq istəyirsinizsə,
+                    komandamıza qoşulun.
+                </p>
+                <div class="d-flex gap-3 justify-content-center flex-column flex-sm-row">
+                    <a href="mailto:careers@probiz.com" class="btn-accent">
+                        <i class="bi bi-send me-2"></i> Müraciət Edin
+                    </a>
+                    <a href="../az/index.html#assessmentForm" class="btn-outline-white">
+                        Konsultasiya Alın
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             TEAM MEMBER MODAL
+             ===================================================================== -->
+        <div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="teamModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content glass-modal">
+                    <div class="modal-header border-0 pb-0">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Bağla"></button>
+                    </div>
+                    <div class="modal-body pt-0 pb-5 px-4 px-md-5">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-md-5 text-center text-md-start">
+                                <div class="modal-photo-wrapper">
+                                    <img src="" alt="" id="modalMemberPhoto"
+                                        class="img-fluid rounded-4 shadow-lg modal-photo">
+                                </div>
+                            </div>
+                            <div class="col-md-7 text-center text-md-start">
+                                <h3 id="modalMemberName" class="mb-2 fw-bold text-white">Ad Soyad</h3>
+                                <h6 id="modalMemberRole" class="text-accent text-uppercase letter-spacing-2 mb-4">Vəzifə
+                                </h6>
+                                <p id="modalMemberBioDetailed" class="text-white-50 lh-lg modal-detailed-text">
+                                    Ətraflı bioqrafiya.
+                                </p>
+                                <div
+                                    class="mt-4 pt-4 border-top border-white-10 d-flex justify-content-center justify-content-md-start gap-3">
+                                    <a href="#" class="social-icon-btn border border-white-10"><i
+                                            class="bi bi-linkedin"></i></a>
+                                    <a href="#" class="social-icon-btn border border-white-10"><i
+                                            class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- =====================================================================
+         FOOTER — Reused from Homepage
+         ===================================================================== -->
+    <footer class="plh-footer" id="global-footer">
+        <div class="container">
+            <div class="row align-items-center mb-5 pb-5 border-bottom border-white-10">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h3 class="fw-bold mb-3 text-white">Qlobal Baş Qərargah</h3>
+                    <div class="map-container shadow-lg mb-3">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3038.0061848378305!2d49.85997037601059!3d40.40871377144082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDI0JzMxLjQiTiA0OcKwNTEnNDUuMiJF!5e0!3m2!1sen!2saz!4v1769815983505!5m2!1sen!2saz"
+                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" title="PROBIZ HQ Map"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <h3 class="fw-bold mb-4">Rəqiblərdən Öndə Olun.</h3>
+                    <p class="mb-4 opacity-75">Bakıda və ya Nyu-Yorkda strateji məsləhətçilərimizlə birbaşa əlaqə
+                        saxlayın.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn-outline-white" style="padding: 12px 24px; font-size: 0.85rem;"><i
+                                class="bi bi-geo-alt-fill me-2"></i> Yol Tarifi Alın</a>
+                        <a href="tel:8776674265" class="btn-accent" style="padding: 12px 24px; font-size: 0.85rem;"><i
+                                class="bi bi-telephone-fill me-2"></i> İndi Zəng Edin</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-5 mb-5">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <img src="../PLHLogo.png" alt="PROBIZ Logo" width="100" class="me-3" />
+                        <span class="brand-footer-text">PROBIZ LEGAL HUB</span>
+                    </div>
+                    <p class="opacity-75">Mərkəzi Bakıda yerləşən və qlobal əhatəyə malik şirkət. Biz 2026-cı ilin
+                        iqtisadiyyatını formalaşdıran innovatorları müdafiə edirik.</p>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <h6 class="text-accent text-uppercase mb-3 small">Firma</h6>
+                    <ul class="list-unstyled text-white opacity-75">
+                        <li class="mb-2"><a href="../az/index.html"
+                                class="text-white text-decoration-none footer-link-anim">Ana Səhifə</a></li>
+                        <li class="mb-2"><a href="#"
+                                class="text-white text-decoration-none footer-link-anim">Haqqımızda</a></li>
+                        <li class="mb-2"><a href="#"
+                                class="text-white text-decoration-none footer-link-anim">Karyera</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="text-accent text-uppercase mb-3 small">Ekspertiza</h6>
+                    <ul class="list-unstyled text-white opacity-75">
+                        <li class="mb-2"><a href="#"
+                                class="text-white text-decoration-none footer-link-anim">Korporativ</a></li>
+                        <li class="mb-2"><a href="#"
+                                class="text-white text-decoration-none footer-link-anim">Məhkəmə</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Əqli
+                                Mülkiyyət</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="text-accent text-uppercase mb-3 small">Əlaqə</h6>
+                    <ul class="list-unstyled opacity-75 mb-4">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2 text-accent"></i> Bakı, Azərbaycan</li>
+                        <li class="mb-2"><i class="bi bi-telephone me-2 text-accent"></i> (877) 667-4265</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2 text-accent"></i> legal@probiz.com</li>
+                    </ul>
+                    <h6 class="text-accent text-uppercase mb-3 small">Sosial Şəbəkələr</h6>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-icon-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pt-4 border-top border-white-10">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small opacity-50 mb-0">&copy; 2026 PROBIZ LEGAL HUB. Bütün Hüquqlar Qorunur. | <span
+                            class="text-accent">Strategiya: Tural</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-sticky-cta d-md-none">
+        <a href="tel:8776674265" class="mobile-cta-btn bg-white text-dark border-end">İndi Zəng Edin</a>
+        <a href="#join" class="mobile-cta-btn btn-accent text-white" style="border-radius: 0;">Bizə Qoşul</a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="team.js"></script>
+</body>
+
+</html>
